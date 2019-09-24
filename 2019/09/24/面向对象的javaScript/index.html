@@ -5,7 +5,7 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://yoursite.com">
+  <link rel="dns-prefetch" href="https://htb58.github.io">
   <title>面向对象的javaScript | Hexo</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -14,11 +14,11 @@
 <meta name="keywords" content="note">
 <meta property="og:type" content="article">
 <meta property="og:title" content="面向对象的javaScript">
-<meta property="og:url" content="http://yoursite.com/2019/09/24/面向对象的javaScript/index.html">
+<meta property="og:url" content="https://htb58.github.io/2019/09/24/面向对象的javaScript/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="1.1 动态类型语言和鸭子类型 编程语言按照数据类型大体可以分为两类：静态类型语言、动态类型语言。 javascript在对变量赋值时。不需要考虑它的类型。因此，javascript是一门典型的动态类型语言。动态类型语言由于无需进行类型检测，我们可以尝试调用任何对象的任意方法，而无需考虑它原本是否被设计为拥有该方法。这一切都建立在 鸭子类型 的概念上，鸭子类型的通俗说法是：”如果它走起路来像鸭子，">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-24T01:53:41.000Z">
+<meta property="og:updated_time" content="2019-09-24T03:06:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面向对象的javaScript">
 <meta name="twitter:description" content="1.1 动态类型语言和鸭子类型 编程语言按照数据类型大体可以分为两类：静态类型语言、动态类型语言。 javascript在对变量赋值时。不需要考虑它的类型。因此，javascript是一门典型的动态类型语言。动态类型语言由于无需进行类型检测，我们可以尝试调用任何对象的任意方法，而无需考虑它原本是否被设计为拥有该方法。这一切都建立在 鸭子类型 的概念上，鸭子类型的通俗说法是：”如果它走起路来像鸭子，">
@@ -216,7 +216,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">355字</span>
+      <span class="post-count">347字</span>
     </span>
   </span>
 
@@ -245,7 +245,7 @@
 </li>
 </ul>
 <p>eg:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">var duck = &#123;</span><br><span class="line">  duckSinging: function()&#123;</span><br><span class="line">    console.log(&quot;嘎嘎嘎&quot;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">var chicken = &#123;</span><br><span class="line">  duckSinging: function()&#123;</span><br><span class="line">    console.log(&quot;嘎嘎嘎&quot;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">var choir = []; // 合唱团</span><br><span class="line">var joinChoir = function ( animal )&#123;</span><br><span class="line">  if( animal &amp;&amp; typeof animal.duckSinging === &apos;function&apos; )&#123;</span><br><span class="line">    choir.push( animal );</span><br><span class="line">    console.log( &apos;恭喜加入合唱团&apos; )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">joinChoir( duck );</span><br><span class="line">joinChoir( chicken );</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> duck = &#123;</span><br><span class="line">  duckSinging: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"嘎嘎嘎"</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> chicken = &#123;</span><br><span class="line">  duckSinging: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"嘎嘎嘎"</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> choir = []; <span class="comment">// 合唱团</span></span><br><span class="line"><span class="keyword">var</span> joinChoir = <span class="function"><span class="keyword">function</span> (<span class="params"> animal </span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>( animal &amp;&amp; <span class="keyword">typeof</span> animal.duckSinging === <span class="string">'function'</span> )&#123;</span><br><span class="line">    choir.push( animal );</span><br><span class="line">    <span class="built_in">console</span>.log( <span class="string">'恭喜加入合唱团'</span> )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">joinChoir( duck );</span><br><span class="line">joinChoir( chicken );</span><br></pre></td></tr></table></figure>
 
 <p>只要存在这个方法，那么就可以加入到这个集合中，并不需要检测他们的类型</p>
 <h4 id="1-2-多态"><a href="#1-2-多态" class="headerlink" title="1.2 多态"></a>1.2 多态</h4><blockquote>
@@ -297,7 +297,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="http://yoursite.com/2019/09/24/面向对象的javaScript/" title="面向对象的javaScript" target="_blank">http://yoursite.com/2019/09/24/面向对象的javaScript/</a>
+          <a href="https://htb58.github.io/2019/09/24/面向对象的javaScript/" title="面向对象的javaScript" target="_blank">https://htb58.github.io/2019/09/24/面向对象的javaScript/</a>
         </li>
         <li>
           <strong>版权声明： </strong>
@@ -383,7 +383,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/24/面向对象的javaScript/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://htb58.github.io/2019/09/24/面向对象的javaScript/" alt="微信分享二维码"> -->
     </div>
 </div>
 

@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="this javascript的this总是指向一个对象，而具体指向那个对象是在运行时基于函数的执行环境动态绑定的，而非函数被声明时的环境。  this 的指向 除去不常用的with 和 eval 的情况，this 指向大致分为四种。   作为对象的方法调用 作为普通函数调用 构造器调用 Function.prototype.call或 Function.prototype.apply调用。  作">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-25T01:33:30.000Z">
+<meta property="og:updated_time" content="2019-09-26T01:10:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="this、call 和 apply">
 <meta name="twitter:description" content="this javascript的this总是指向一个对象，而具体指向那个对象是在运行时基于函数的执行环境动态绑定的，而非函数被声明时的环境。  this 的指向 除去不常用的with 和 eval 的情况，this 指向大致分为四种。   作为对象的方法调用 作为普通函数调用 构造器调用 Function.prototype.call或 Function.prototype.apply调用。  作">
@@ -222,7 +222,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">556字</span>
+      <span class="post-count">1k字</span>
     </span>
   </span>
 
@@ -231,7 +231,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">2分</span>
+      <span class="post-count">4分</span>
     </span>
   </span>
 </div>
@@ -288,7 +288,31 @@
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj1 = &#123;</span><br><span class="line">  name: <span class="string">'obj1'</span>,</span><br><span class="line">  getName: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> obj2 = &#123;</span><br><span class="line">  name: <span class="string">'obj2'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log( obj1.getName() ); <span class="comment">// obj1</span></span><br><span class="line"><span class="built_in">console</span>.log( obj1.getName.call(obj2)) <span class="comment">// obj2</span></span><br></pre></td></tr></table></figure>
 
+<h1 id="call-和-apply"><a href="#call-和-apply" class="headerlink" title="call 和 apply"></a>call 和 apply</h1><blockquote>
+<p>ECAMScript 3 给 Function 的原型定义了两个方法，它们是 Function.prototype.call 和 Function.prototype.apply。</p>
+</blockquote>
+<h1 id="call-和-apply-的区别"><a href="#call-和-apply-的区别" class="headerlink" title="call 和 apply 的区别"></a>call 和 apply 的区别</h1><blockquote>
+<p>Function.prototype.call 和 Function.prototype.apply 它们的作用是一摸一样的，区别仅在于传入的参数形式的不同。</p>
+</blockquote>
+<h2 id="apply"><a href="#apply" class="headerlink" title="apply"></a>apply</h2><blockquote>
+<p>apply 接受两个参数，第一个参数指定了函数体内this 对象的指向，第二个参数为一个带下标的集合，这个集合可以为数组，也可以为类数组,apply方法把这个集合中的元素作为参数传递给被调用的函数：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> func = <span class="function"><span class="keyword">function</span>(<span class="params"> a, b, c </span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log( [a, b, c] ); <span class="comment">// [1, 2, 3]</span></span><br><span class="line">&#125;;</span><br><span class="line">func.apply( <span class="literal">null</span> , [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br></pre></td></tr></table></figure>
 
+<h2 id="call"><a href="#call" class="headerlink" title="call"></a>call</h2><blockquote>
+<p>call 传入的参数的数量不固定，跟apply相同的是，第一个参数也是代表函数体内的this的指向，从第二个参数开始往后，每个参数依次传入函数：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> func = <span class="function"><span class="keyword">function</span>(<span class="params"> a, b, c </span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log( [a, b, c] ); <span class="comment">// [1, 2, 3]</span></span><br><span class="line">&#125;;</span><br><span class="line">func.call( <span class="literal">null</span> , <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+
+<p><strong>当使用call 或者 apply 的时候，如果我们传入的第一个参数为null，函数体内的 this 会指向默认的宿主对象，在浏览器中则是window。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> func = <span class="function"><span class="keyword">function</span>(<span class="params"> a, b, c </span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log( <span class="keyword">this</span> == <span class="built_in">window</span> ); <span class="comment">// true</span></span><br><span class="line">&#125;;</span><br><span class="line">func.call( <span class="literal">null</span> , <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line"><span class="string">``</span><span class="string">` </span></span><br><span class="line"><span class="string">**但如果在严格模式下，函数体内的 this 还是null。**</span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>javascript</span><br><span class="line"><span class="keyword">var</span> func = <span class="function"><span class="keyword">function</span>(<span class="params"> a, b, c </span>)</span>&#123;</span><br><span class="line"><span class="meta">  "use strict"</span></span><br><span class="line">  <span class="built_in">console</span>.log( <span class="keyword">this</span> == <span class="literal">null</span> ); <span class="comment">// true</span></span><br><span class="line">&#125;;</span><br><span class="line">func.call( <span class="literal">null</span> , <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line"><span class="string">``</span><span class="string">` </span></span><br><span class="line"><span class="string"># call 和 apply 的用途</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">###  改变this的指向</span></span><br><span class="line"><span class="string">`</span><span class="string">``</span>javascript</span><br><span class="line"><span class="keyword">var</span> obj1 = &#123;</span><br><span class="line">  name: <span class="string">'obj1'</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> obj2 = &#123;</span><br><span class="line">  name: <span class="string">'obj2'</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">window</span>.name = <span class="string">'window'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">getName();  <span class="comment">// window</span></span><br><span class="line">getName.call(obj1) <span class="comment">// obj1</span></span><br><span class="line">getName.call(obj2) <span class="comment">// obj2</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Function-prototype-bind"><a href="#Function-prototype-bind" class="headerlink" title="Function.prototype.bind"></a>Function.prototype.bind</h3><ul>
+<li>模拟Function.prototype.bind 实现</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.bind = <span class="function"><span class="keyword">function</span>(<span class="params"> context </span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> self = <span class="keyword">this</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> self.apply(context,<span class="built_in">arguments</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  name: <span class="string">'obj'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> func = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">&#125;.bind( obj );</span><br><span class="line">func();</span><br></pre></td></tr></table></figure>
+
+<h3 id="借用其他对象的方法"><a href="#借用其他对象的方法" class="headerlink" title="借用其他对象的方法"></a>借用其他对象的方法</h3>
     
 
     
@@ -435,15 +459,20 @@
 
 <nav id="article-nav">
   
-    <a href="/2019/09/24/面向对象的javaScript/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/09/24/http状态码/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          面向对象的javaScript
+          http 状态码
         
       </div>
     </a>
   
+  
+    <a href="/2019/09/24/txt/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">诗</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 

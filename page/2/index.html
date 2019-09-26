@@ -76,6 +76,8 @@
 	        
 				<li><a href="https://htb58.github.io/" >技术笔记</a></li>
 	        
+				<li><a href="/tags/js" >笔记</a></li>
+	        
 				<li><a href="/tags/note" >随笔</a></li>
 	        
 			</ul>
@@ -143,6 +145,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -161,11 +165,13 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="https://htb58.github.io/">技术笔记</a></li>
+					<li style="width: 25%"><a href="https://htb58.github.io/">技术笔记</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/note">随笔</a></li>
+					<li style="width: 25%"><a href="/tags/js">笔记</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/note">随笔</a></li>
 		        
 				</ul>
 			</nav>
@@ -274,7 +280,7 @@
 
 
   
-    <article id="post-移动端左右上下滑动事件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-vue路由" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -282,7 +288,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2019/09/24/移动端左右上下滑动事件/" target="_blank">移动端左右上下滑动事件</a>
+	  <a class="article-title" href="/2019/09/24/vue路由/" target="_blank">vue路由的两种模式，hash与history原理</a>
   
     </h1>
   
@@ -290,7 +296,7 @@
 
   
   
-<a href="/2019/09/24/移动端左右上下滑动事件/" class="archive-article-date">
+<a href="/2019/09/24/vue路由/" class="archive-article-date">
         <time datetime="2019-09-24T00:38:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-24</time>
 </a>
 
@@ -303,11 +309,13 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <ul>
-<li>移动端左右上下滑动事件</li>
-</ul>
+    <blockquote>
+<ol>
+<li>hash —— 即地址栏 URL 中的 # 符号（此 hash 不是密码学里的散列运算）。<br>比如这个 URL：<a href="http://www.abc.com/#/hello，hash" target="_blank" rel="noopener">http://www.abc.com/#/hello，hash</a> 的值为 #/hello。它的特点在于：hash 虽然出现在 URL 中，但不会被包括在 HTTP 请求中，对后端完全没有影响，因此改变 hash 不会重新加载页面。</li>
+</ol>
+</blockquote>
     
-    <a class="article-more-a" href="/2019/09/24/移动端左右上下滑动事件/#more">more >></a>
+    <a class="article-more-a" href="/2019/09/24/vue路由/#more">more >></a>
     
     
 
@@ -336,7 +344,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/javaScipt//" class="article-tag-list-link color5">javaScipt</a>
+        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
         		</li>
       		
 		</ul>
@@ -345,7 +353,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2019/09/24/移动端左右上下滑动事件/">展开全文 >></a>
+      <a class="article-more-a" href="/2019/09/24/vue路由/">展开全文 >></a>
     </p>
     
 
@@ -448,6 +456,119 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2019/09/24/面向对象的javaScript/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-this、call、apply" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/09/24/this、call、apply/" target="_blank">this、call 和 apply</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/09/24/this、call、apply/" class="archive-article-date">
+        <time datetime="2019-09-24T00:38:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-24</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="this"><a href="#this" class="headerlink" title="this"></a>this</h1><blockquote>
+<p>javascript的this总是指向一个对象，而具体指向那个对象是在运行时基于函数的执行环境动态绑定的，而非函数被声明时的环境。</p>
+</blockquote>
+<h2 id="this-的指向"><a href="#this-的指向" class="headerlink" title="this 的指向"></a>this 的指向</h2><ul>
+<li>除去不常用的with 和 eval 的情况，this 指向大致分为四种。</li>
+</ul>
+<ol>
+<li>作为对象的方法调用</li>
+<li>作为普通函数调用</li>
+<li>构造器调用</li>
+<li>Function.prototype.call或 Function.prototype.apply调用。</li>
+</ol>
+<h3 id="作为对象的方法调用"><a href="#作为对象的方法调用" class="headerlink" title="作为对象的方法调用"></a><strong>作为对象的方法调用</strong></h3><ul>
+<li>当函数作为对象的方法时，this 指向该对象</li>
+</ul>
+    
+    <a class="article-more-a" href="/2019/09/24/this、call、apply/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/09/24/this、call、apply/">展开全文 >></a>
     </p>
     
 
@@ -611,6 +732,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">note</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
             
             <div class="clearfix"></div>

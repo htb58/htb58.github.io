@@ -6,22 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://htb58.github.io">
-  <title>vue路由的两种模式，hash与history原理 | 悲小剧博客</title>
+  <title>闭包 | 悲小剧博客</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="hash —— 即地址栏 URL 中的 # 符号（此 hash 不是密码学里的散列运算）。比如这个 URL：http://www.abc.com/#/hello，hash 的值为 #/hello。它的特点在于：hash 虽然出现在 URL 中，但不会被包括在 HTTP 请求中，对后端完全没有影响，因此改变 hash 不会重新加载页面。">
-<meta name="keywords" content="note">
+  <meta name="description" content="闭包变量的作用域 变量的作用域，就是指变量的有效范围。我们最常谈到的就是函数中声明的变量作用域。当在函数中声明一个变量的时候，如果该变量前面没有带上关键字 var 、let 、const、其中一个，这个变量就会变成全局变量。 反之只能在这个函数中才能访问到这个变量。">
+<meta name="keywords" content="js">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue路由的两种模式，hash与history原理">
-<meta property="og:url" content="https://htb58.github.io/2019/09/24/vue路由/index.html">
+<meta property="og:title" content="闭包">
+<meta property="og:url" content="https://htb58.github.io/2019/09/29/闭包/index.html">
 <meta property="og:site_name" content="悲小剧博客">
-<meta property="og:description" content="hash —— 即地址栏 URL 中的 # 符号（此 hash 不是密码学里的散列运算）。比如这个 URL：http://www.abc.com/#/hello，hash 的值为 #/hello。它的特点在于：hash 虽然出现在 URL 中，但不会被包括在 HTTP 请求中，对后端完全没有影响，因此改变 hash 不会重新加载页面。">
+<meta property="og:description" content="闭包变量的作用域 变量的作用域，就是指变量的有效范围。我们最常谈到的就是函数中声明的变量作用域。当在函数中声明一个变量的时候，如果该变量前面没有带上关键字 var 、let 、const、其中一个，这个变量就会变成全局变量。 反之只能在这个函数中才能访问到这个变量。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-24T03:08:53.000Z">
+<meta property="og:updated_time" content="2019-11-28T03:14:17.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vue路由的两种模式，hash与history原理">
-<meta name="twitter:description" content="hash —— 即地址栏 URL 中的 # 符号（此 hash 不是密码学里的散列运算）。比如这个 URL：http://www.abc.com/#/hello，hash 的值为 #/hello。它的特点在于：hash 虽然出现在 URL 中，但不会被包括在 HTTP 请求中，对后端完全没有影响，因此改变 hash 不会重新加载页面。">
+<meta name="twitter:title" content="闭包">
+<meta name="twitter:description" content="闭包变量的作用域 变量的作用域，就是指变量的有效范围。我们最常谈到的就是函数中声明的变量作用域。当在函数中声明一个变量的时候，如果该变量前面没有带上关键字 var 、let 、const、其中一个，这个变量就会变成全局变量。 反之只能在这个函数中才能访问到这个变量。">
   
     <link rel="alternative" href="/atom.xml" title="悲小剧博客" type="application/atom+xml">
   
@@ -204,14 +204,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-vue路由" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-闭包" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      vue路由的两种模式，hash与history原理
+      闭包
     </h1>
   
 
@@ -223,8 +223,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2019/09/24/vue路由/" class="archive-article-date">
-        <time datetime="2019-09-24T00:38:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-24</time>
+<a href="/2019/09/29/闭包/" class="archive-article-date">
+        <time datetime="2019-09-29T00:23:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-29</time>
 </a>
 
   
@@ -237,7 +237,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">469字</span>
+      <span class="post-count">563字</span>
     </span>
   </span>
 
@@ -246,7 +246,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">2分</span>
     </span>
   </span>
 </div>
@@ -257,27 +257,31 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <blockquote>
-<ol>
-<li>hash —— 即地址栏 URL 中的 # 符号（此 hash 不是密码学里的散列运算）。<br>比如这个 URL：<a href="http://www.abc.com/#/hello，hash" target="_blank" rel="noopener">http://www.abc.com/#/hello，hash</a> 的值为 #/hello。它的特点在于：hash 虽然出现在 URL 中，但不会被包括在 HTTP 请求中，对后端完全没有影响，因此改变 hash 不会重新加载页面。</li>
-</ol>
+    <h1 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h1><h3 id="变量的作用域"><a href="#变量的作用域" class="headerlink" title="变量的作用域"></a>变量的作用域</h3><blockquote>
+<p>变量的作用域，就是指变量的有效范围。我们最常谈到的就是函数中声明的变量作用域。<br>当在函数中声明一个变量的时候，如果该变量前面没有带上关键字 var 、let 、const、其中一个，这个变量就会变成全局变量。 反之只能在这个函数中才能访问到这个变量。</p>
 </blockquote>
 <a id="more"></a>
-<blockquote>
-<ol start="2">
-<li>history —— 利用了 HTML5 History Interface 中新增的 pushState() 和 replaceState() 方法。（需要特定浏览器支持）<br>这两个方法应用于浏览器的历史记录栈，在当前已有的 back、forward、go 的基础之上，它们提供了对历史记录进行修改的功能。只是当它们执行修改时，虽然改变了当前的 URL，但浏览器不会立即向后端发送请求。<br>因此可以说，hash 模式和 history 模式都属于浏览器自身的特性，Vue-Router 只是利用了这两个特性（通过调用浏览器提供的接口）来实现前端路由。</li>
-</ol>
+<h3 id="作用域嵌套"><a href="#作用域嵌套" class="headerlink" title="作用域嵌套"></a>作用域嵌套</h3><blockquote>
+<p>当一个块或函数嵌套在另一个快或函数中时，就发生了作用域的嵌套。因此，在当前作用域中无法找到某个变量的时，引擎就会在外层嵌套的作用域中继续查找，直到找到该变量，或者抵达最外层作用域（也就是全局作用域）为止。</p>
 </blockquote>
-<h3 id="错误"><a href="#错误" class="headerlink" title="错误"></a>错误</h3><blockquote>
-<p>1、hash模式下，仅hash符号之前的内容会被包含在请求中，如 <a href="http://www.abc.com" target="_blank" rel="noopener">http://www.abc.com</a>, 因此对于后端来说，即使没有做到对路由的全覆盖，也不会返回404错误；</p>
+<h3 id="什么是闭包？"><a href="#什么是闭包？" class="headerlink" title="什么是闭包？"></a>什么是闭包？</h3><blockquote>
+<p>简单讲，闭包就是指有权访问另一个函数作用域中的变量的函数。<br>MDN 上面这么说：闭包是一种特殊的对象。它由两部分构成：函数，以及创建该函数的环境。环境由闭包创建时在作用域中的任何局部变量组成。</p>
 </blockquote>
-<blockquote>
-<p>2、history模式下，前端的url必须和实际向后端发起请求的url 一致，如<a href="http://www.abc.com/book/id" target="_blank" rel="noopener">http://www.abc.com/book/id</a> 。如果后端缺少对/book/id 的路由处理，将返回404错误。刷新也会报404因为会实际去请求数据。 （需要后端进行配置。vue官网有介绍）</p>
-</blockquote>
-<blockquote>
-<p>前端路由中我们主要是利用history.replaceState() history.pushState或者改变hash值不会使页面重新加载，然后监听路由的变化来做到触发对应时间加载对应资源来重新绘制页面。<br>这里比较重要的点是，监听hash模式用的是hashchange，history模式用的是popstate</p>
-</blockquote>
+<h3 id="生成一个闭包"><a href="#生成一个闭包" class="headerlink" title="生成一个闭包"></a>生成一个闭包</h3><ul>
+<li>最常见的闭包就是在一个函数内嵌套另外一个函数。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> i = <span class="number">1</span>,k = <span class="number">2</span>;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">closure</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> i + k</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> closure</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+</li>
+</ul>
+<h3 id="闭包的注意事项"><a href="#闭包的注意事项" class="headerlink" title="闭包的注意事项"></a>闭包的注意事项</h3><ul>
+<li>通常，根据JavaScript 垃圾回收机制函数的作用域和他所有的变量在函数执行完成之后都会被立即销毁，但是，在创建闭包后，这个变量就会一直存在直到闭包不存在。</li>
+</ul>
+<h4 id="手动释放闭包"><a href="#手动释放闭包" class="headerlink" title="手动释放闭包"></a>手动释放闭包</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">func</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">2</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">x</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span>  a + x</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> cl1 = func();</span><br><span class="line"><span class="keyword">var</span> cl2 = func();</span><br><span class="line"><span class="built_in">console</span>.log( cl1(<span class="number">3</span>) ) <span class="comment">// 5</span></span><br><span class="line"><span class="built_in">console</span>.log( cl2(<span class="number">4</span>) ) <span class="comment">// 6</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 释放闭包</span></span><br><span class="line">cl1 = <span class="literal">null</span></span><br><span class="line">cl2 = <span class="literal">null</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="闭包的应用"><a href="#闭包的应用" class="headerlink" title="闭包的应用"></a>闭包的应用</h3><blockquote>
+<p>可以用来做数据的缓存，因为闭包数据会一直常驻内存。</p>
+</blockquote>
+<p>eg： </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> CachedSearchData = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> cacheData = [], count = cacheData.length;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    getSearchData: <span class="function"><span class="keyword">function</span> (<span class="params">id</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (id <span class="keyword">in</span> cacheData) &#123;<span class="comment">//如果结果在缓存中</span></span><br><span class="line">        <span class="keyword">return</span> cacheData[id];<span class="comment">//直接返回缓存中的对象</span></span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">//到数据库中查找</span></span><br><span class="line">        alert(<span class="string">"search in database"</span>);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    clearSearchData: <span class="function"><span class="keyword">function</span> (<span class="params">id</span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (dsid <span class="keyword">in</span> cache) &#123;</span><br><span class="line">        cache[dsid].clearSelection();</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line">CachedSearchData.getSearchData(<span class="number">77</span>);</span><br></pre></td></tr></table></figure>
     
 
     
@@ -323,7 +327,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://htb58.github.io/2019/09/24/vue路由/" title="vue路由的两种模式，hash与history原理" target="_blank">https://htb58.github.io/2019/09/24/vue路由/</a>
+          <a href="https://htb58.github.io/2019/09/29/闭包/" title="闭包" target="_blank">https://htb58.github.io/2019/09/29/闭包/</a>
         </li>
         <li>
           <strong>版权声明： </strong>
@@ -342,7 +346,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">note</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		
 		</ul>
@@ -354,7 +358,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
+        			<a href="/categories/javaScipt//" class="article-tag-list-link color5">javaScipt</a>
         		</li>
       		
 		</ul>
@@ -409,7 +413,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://htb58.github.io/2019/09/24/vue路由/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://htb58.github.io/2019/09/29/闭包/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -424,18 +428,9 @@
 
 <nav id="article-nav">
   
-    <a href="/2019/09/24/txt/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          诗
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/09/24/移动端左右上下滑动事件/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">移动端左右上下滑动事件</div>
+    <a href="/2019/09/24/js 点击复制文本/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">javascript 实现点击复制文本</div>
       <i class="icon-circle-right"></i>
     </a>
   

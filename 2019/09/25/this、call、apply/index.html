@@ -6,24 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://htb58.github.io">
-  <title>悲小剧博客</title>
+  <title>this、call 和 apply | 悲小剧博客</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-    
-    <meta name="keywords" content="web在路上">
-  
-  <meta name="description" content="web在路上">
-<meta name="keywords" content="vue、js">
-<meta property="og:type" content="website">
-<meta property="og:title" content="悲小剧博客">
-<meta property="og:url" content="https://htb58.github.io/index.html">
+  <meta name="description" content="this javascript的this总是指向一个对象，而具体指向那个对象是在运行时基于函数的执行环境动态绑定的，而非函数被声明时的环境。  this 的指向 除去不常用的with 和 eval 的情况，this 指向大致分为四种。   作为对象的方法调用 作为普通函数调用 构造器调用 Function.prototype.call或 Function.prototype.apply调用。  作">
+<meta name="keywords" content="js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="this、call 和 apply">
+<meta property="og:url" content="https://htb58.github.io/2019/09/25/this、call、apply/index.html">
 <meta property="og:site_name" content="悲小剧博客">
-<meta property="og:description" content="web在路上">
+<meta property="og:description" content="this javascript的this总是指向一个对象，而具体指向那个对象是在运行时基于函数的执行环境动态绑定的，而非函数被声明时的环境。  this 的指向 除去不常用的with 和 eval 的情况，this 指向大致分为四种。   作为对象的方法调用 作为普通函数调用 构造器调用 Function.prototype.call或 Function.prototype.apply调用。  作">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-12-10T07:59:06.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="悲小剧博客">
-<meta name="twitter:description" content="web在路上">
+<meta name="twitter:title" content="this、call 和 apply">
+<meta name="twitter:description" content="this javascript的this总是指向一个对象，而具体指向那个对象是在运行时基于函数的执行环境动态绑定的，而非函数被声明时的环境。  this 的指向 除去不常用的with 和 eval 的情况，this 指向大致分为四种。   作为对象的方法调用 作为普通函数调用 构造器调用 Function.prototype.call或 Function.prototype.apply调用。  作">
   
     <link rel="alternative" href="/atom.xml" title="悲小剧博客" type="application/atom+xml">
   
@@ -206,126 +204,25 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-
-  
-    <article id="post-闭包" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-this、call、apply" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/09/29/闭包/" target="_blank">闭包</a>
-  
+    <h1 class="article-title" itemprop="name">
+      this、call 和 apply
     </h1>
   
 
 
   
   
-<a href="/2019/09/29/闭包/" class="archive-article-date">
-        <time datetime="2019-09-29T00:23:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-29</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h1><h3 id="变量的作用域"><a href="#变量的作用域" class="headerlink" title="变量的作用域"></a>变量的作用域</h3><blockquote>
-<p>变量的作用域，就是指变量的有效范围。我们最常谈到的就是函数中声明的变量作用域。<br>当在函数中声明一个变量的时候，如果该变量前面没有带上关键字 var 、let 、const、其中一个，这个变量就会变成全局变量。 反之只能在这个函数中才能访问到这个变量。</p>
-</blockquote>
-    
-    <a class="article-more-a" href="/2019/09/29/闭包/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/javaScipt//" class="article-tag-list-link color5">javaScipt</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/09/29/闭包/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
         
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
 
-
-
-
-  
-    <article id="post-this、call、apply" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/09/25/this、call、apply/" target="_blank">this、call 和 apply</a>
-  
-    </h1>
-  
-
-
-  
-  
 <a href="/2019/09/25/this、call、apply/" class="archive-article-date">
         <time datetime="2019-09-25T00:27:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-25</time>
 </a>
@@ -333,6 +230,27 @@
   
   
     
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">1k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">4分</span>
+    </span>
+  </span>
+</div>
+
 
   
   </header>
@@ -354,13 +272,124 @@
 <h3 id="作为对象的方法调用"><a href="#作为对象的方法调用" class="headerlink" title="作为对象的方法调用"></a><strong>作为对象的方法调用</strong></h3><ul>
 <li>当函数作为对象的方法时，this 指向该对象</li>
 </ul>
-    
-    <a class="article-more-a" href="/2019/09/25/this、call、apply/#more">more >></a>
-    
+<a id="more"></a>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  a: <span class="number">1</span>,</span><br><span class="line">  getA: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log( <span class="keyword">this</span> == obj ) <span class="comment">// true</span></span><br><span class="line">    <span class="built_in">console</span>.log( <span class="keyword">this</span>.a )      <span class="comment">// 1</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">obj.getA();</span><br></pre></td></tr></table></figure>
+
+<h3 id="作为普通函数调用"><a href="#作为普通函数调用" class="headerlink" title="作为普通函数调用"></a><strong>作为普通函数调用</strong></h3><ul>
+<li>当函数不作为对象的属性被调用时，也就是普通函数的方式，此时的this总是指向全局对象（window）；</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.name = <span class="string">'globalName'</span>;</span><br><span class="line"><span class="keyword">var</span> getName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(getName()) <span class="comment">// globalName</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  name: <span class="string">'objName'</span>,</span><br><span class="line">  getName: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> getName = obj.getName;</span><br><span class="line"><span class="built_in">console</span>.log(getName()) <span class="comment">// globalName</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="构造器调用"><a href="#构造器调用" class="headerlink" title="构造器调用"></a><strong>构造器调用</strong></h3><ul>
+<li>JavaScript 中可以从构造器中创建对象。同时提供了new运算符。</li>
+<li>除了宿主(由ECMAScript实现的宿主环境提供的对象，可以理解为：浏览器提供的对象。所有的BOM和DOM都是宿主对象。)提供的一些内置函数，大部分JavaScript函数都可以当做构造器使用。</li>
+</ul>
+<ul>
+<li><p>通常情况，构造器里的this 就指向返回的这个对象。-</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myClass = funtion()&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = <span class="string">'class'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> myClass();</span><br><span class="line"><span class="built_in">console</span>.log(obj.name) <span class="comment">// class</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>但如果构造器显式的返回了一个object类型的对象，那么运算结果最终会返回这个对象，this 也将指向这个对象。</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myClass = funtion()&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = <span class="string">'class'</span>;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    name: <span class="string">'name'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> myClass();</span><br><span class="line"><span class="built_in">console</span>.log(obj.name) <span class="comment">// name</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>但如果构造器不显式的返回了任何数据，或者返回一个非object类型的对象，就不会出现上述问题。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myClass = funtion()&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = <span class="string">'class'</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="string">'name'</span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> myClass();</span><br><span class="line"><span class="built_in">console</span>.log(obj.name) <span class="comment">// class</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Function-prototype-call或-Function-prototype-apply调用。"><a href="#Function-prototype-call或-Function-prototype-apply调用。" class="headerlink" title="Function.prototype.call或 Function.prototype.apply调用。"></a>Function.prototype.call或 Function.prototype.apply调用。</h3><ul>
+<li>跟普通的函数调用相比，用 call 或 apply 可以动态的改变传入函数的this</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj1 = &#123;</span><br><span class="line">  name: <span class="string">'obj1'</span>,</span><br><span class="line">  getName: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> obj2 = &#123;</span><br><span class="line">  name: <span class="string">'obj2'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log( obj1.getName() ); <span class="comment">// obj1</span></span><br><span class="line"><span class="built_in">console</span>.log( obj1.getName.call(obj2)) <span class="comment">// obj2</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="call-和-apply"><a href="#call-和-apply" class="headerlink" title="call 和 apply"></a>call 和 apply</h1><blockquote>
+<p>ECAMScript 3 给 Function 的原型定义了两个方法，它们是 Function.prototype.call 和 Function.prototype.apply。</p>
+</blockquote>
+<h1 id="call-和-apply-的区别"><a href="#call-和-apply-的区别" class="headerlink" title="call 和 apply 的区别"></a>call 和 apply 的区别</h1><blockquote>
+<p>Function.prototype.call 和 Function.prototype.apply 它们的作用是一摸一样的，区别仅在于传入的参数形式的不同。</p>
+</blockquote>
+<h2 id="apply"><a href="#apply" class="headerlink" title="apply"></a>apply</h2><blockquote>
+<p>apply 接受两个参数，第一个参数指定了函数体内this 对象的指向，第二个参数为一个带下标的集合，这个集合可以为数组，也可以为类数组,apply方法把这个集合中的元素作为参数传递给被调用的函数：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> func = <span class="function"><span class="keyword">function</span>(<span class="params"> a, b, c </span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log( [a, b, c] ); <span class="comment">// [1, 2, 3]</span></span><br><span class="line">&#125;;</span><br><span class="line">func.apply( <span class="literal">null</span> , [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br></pre></td></tr></table></figure>
+
+<h2 id="call"><a href="#call" class="headerlink" title="call"></a>call</h2><blockquote>
+<p>call 传入的参数的数量不固定，跟apply相同的是，第一个参数也是代表函数体内的this的指向，从第二个参数开始往后，每个参数依次传入函数：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> func = <span class="function"><span class="keyword">function</span>(<span class="params"> a, b, c </span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log( [a, b, c] ); <span class="comment">// [1, 2, 3]</span></span><br><span class="line">&#125;;</span><br><span class="line">func.call( <span class="literal">null</span> , <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>当使用call 或者 apply 的时候，如果我们传入的第一个参数为null，函数体内的 this 会指向默认的宿主对象，在浏览器中则是window。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> func = <span class="function"><span class="keyword">function</span>(<span class="params"> a, b, c </span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log( <span class="keyword">this</span> == <span class="built_in">window</span> ); <span class="comment">// true</span></span><br><span class="line">&#125;;</span><br><span class="line">func.call( <span class="literal">null</span> , <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>但如果在严格模式下，函数体内的 this 还是null。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> func = <span class="function"><span class="keyword">function</span>(<span class="params"> a, b, c </span>)</span>&#123;</span><br><span class="line"><span class="meta">  "use strict"</span></span><br><span class="line">  <span class="built_in">console</span>.log( <span class="keyword">this</span> == <span class="literal">null</span> ); <span class="comment">// true</span></span><br><span class="line">&#125;;</span><br><span class="line">func.call( <span class="literal">null</span> , <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="call-和-apply-的用途"><a href="#call-和-apply-的用途" class="headerlink" title="call 和 apply 的用途"></a>call 和 apply 的用途</h1><h3 id="改变this的指向"><a href="#改变this的指向" class="headerlink" title="改变this的指向"></a>改变this的指向</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj1 = &#123;</span><br><span class="line">  name: <span class="string">'obj1'</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> obj2 = &#123;</span><br><span class="line">  name: <span class="string">'obj2'</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">window</span>.name = <span class="string">'window'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">getName();  <span class="comment">// window</span></span><br><span class="line">getName.call(obj1) <span class="comment">// obj1</span></span><br><span class="line">getName.call(obj2) <span class="comment">// obj2</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Function-prototype-bind"><a href="#Function-prototype-bind" class="headerlink" title="Function.prototype.bind"></a>Function.prototype.bind</h3><ul>
+<li>模拟Function.prototype.bind 实现</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.bind = <span class="function"><span class="keyword">function</span>(<span class="params"> context </span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> self = <span class="keyword">this</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> self.apply(context,<span class="built_in">arguments</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  name: <span class="string">'obj'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> func = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">&#125;.bind( obj );</span><br><span class="line">func();</span><br></pre></td></tr></table></figure>
+
+<h3 id="借用其他对象的方法"><a href="#借用其他对象的方法" class="headerlink" title="借用其他对象的方法"></a>借用其他对象的方法</h3>
     
 
     
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>O(∩_∩)O哈哈~<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/img/alipay.jpg">
+                    <span class="reward-type">支付宝</span>
+                  </div>
+                  
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/img/weixin.jpg">
+                    <span class="reward-type">微信</span>
+                  </div>
+                  
+                </div>
+              </span>
+            </span>
+          </span>
+        </div>
+      </a>
+    </div>
+    
 
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          悲小剧
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https://htb58.github.io/2019/09/25/this、call、apply/" title="this、call 和 apply" target="_blank">https://htb58.github.io/2019/09/25/this、call、apply/</a>
+        </li>
+        <li>
+          <strong>版权声明： </strong>
+          本博客所有文章除特别声明外，均采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow" target="_blank">Apache License 2.0</a> 许可协议。转载请注明出处！
+        </li>
+      </ul>
+    </div>
     
 
   </div>
@@ -392,16 +421,85 @@
 
 
     
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/09/25/this、call、apply/">展开全文 >></a>
-    </p>
+
     
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://htb58.github.io/2019/09/25/this、call、apply/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
 
     
     <div class="clearfix"></div>
   </div>
   </div>
 </article>
+
+
+<nav id="article-nav">
+  
+    <a href="/2019/09/29/闭包/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          闭包
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/09/24/js 点击复制文本/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">javascript 实现点击复制文本</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -422,822 +520,14 @@
 
 
 
-  
-    <article id="post-js 点击复制文本" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/09/24/js 点击复制文本/" target="_blank">javascript 实现点击复制文本</a>
-  
-    </h1>
-  
 
 
-  
-  
-<a href="/2019/09/24/js 点击复制文本/" class="archive-article-date">
-        <time datetime="2019-09-24T01:56:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-24</time>
-</a>
 
-  
-  
-    
 
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <ul>
-<li>javascript 实现点击复制文本</li>
-</ul>
-    
-    <a class="article-more-a" href="/2019/09/24/js 点击复制文本/#more">more >></a>
-    
-    
 
-    
 
-    
 
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">note</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/javaScipt//" class="article-tag-list-link color5">javaScipt</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/09/24/js 点击复制文本/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-移动端左右上下滑动事件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/09/24/移动端左右上下滑动事件/" target="_blank">移动端左右上下滑动事件</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/09/24/移动端左右上下滑动事件/" class="archive-article-date">
-        <time datetime="2019-09-24T01:55:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-24</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <ul>
-<li>移动端左右上下滑动事件</li>
-</ul>
-    
-    <a class="article-more-a" href="/2019/09/24/移动端左右上下滑动事件/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">note</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/javaScipt//" class="article-tag-list-link color5">javaScipt</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/09/24/移动端左右上下滑动事件/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-JavaScript 浮点数判断是否相同" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/09/24/JavaScript 浮点数判断是否相同/" target="_blank">JavaScript 浮点数判断是否相同</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/09/24/JavaScript 浮点数判断是否相同/" class="archive-article-date">
-        <time datetime="2019-09-24T01:54:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-24</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>在JavaScript中处理二进制浮点数最大的问题会出现如下情况：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0.1</span> + <span class="number">0.2</span> === <span class="number">0.3</span>;  <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2019/09/24/JavaScript 浮点数判断是否相同/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">note</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/javaScipt//" class="article-tag-list-link color5">javaScipt</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/09/24/JavaScript 浮点数判断是否相同/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Object.create 详解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/09/24/Object.create 详解/" target="_blank">Object.create 详解</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/09/24/Object.create 详解/" class="archive-article-date">
-        <time datetime="2019-09-24T01:53:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-24</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>Object.create()方法创建一个新对象，使用现有的对象来提供新创建的对象的 __proto__ 。</p>
-</blockquote>
-    
-    <a class="article-more-a" href="/2019/09/24/Object.create 详解/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">note</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/javaScipt//" class="article-tag-list-link color5">javaScipt</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/09/24/Object.create 详解/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-面向对象的javaScript" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/09/24/面向对象的javaScript/" target="_blank">面向对象的javaScript</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/09/24/面向对象的javaScript/" class="archive-article-date">
-        <time datetime="2019-09-24T01:52:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-24</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h4 id="1-1-动态类型语言和鸭子类型"><a href="#1-1-动态类型语言和鸭子类型" class="headerlink" title="1.1 动态类型语言和鸭子类型"></a>1.1 动态类型语言和鸭子类型</h4><ul>
-<li>编程语言按照数据类型大体可以分为两类：静态类型语言、动态类型语言。<blockquote>
-<p>javascript在对变量赋值时。不需要考虑它的类型。因此，javascript是一门典型的动态类型语言。动态类型语言由于无需进行类型检测，我们可以尝试调用任何对象的任意方法，而无需考虑它原本是否被设计为拥有该方法。<br>这一切都建立在 <strong>鸭子类型</strong> 的概念上，鸭子类型的通俗说法是：”如果它走起路来像鸭子，叫起来也像鸭子、那么他就是鸭子。“</p>
-</blockquote>
-    
-    <a class="article-more-a" href="/2019/09/24/面向对象的javaScript/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">note</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/javaScipt//" class="article-tag-list-link color5">javaScipt</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/09/24/面向对象的javaScript/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-vue路由" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/09/24/vue路由/" target="_blank">vue路由的两种模式，hash与history原理</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/09/24/vue路由/" class="archive-article-date">
-        <time datetime="2019-09-24T01:51:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-24</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<ol>
-<li>hash —— 即地址栏 URL 中的 # 符号（此 hash 不是密码学里的散列运算）。<br>比如这个 URL：<a href="http://www.abc.com/#/hello，hash" target="_blank" rel="noopener">http://www.abc.com/#/hello，hash</a> 的值为 #/hello。它的特点在于：hash 虽然出现在 URL 中，但不会被包括在 HTTP 请求中，对后端完全没有影响，因此改变 hash 不会重新加载页面。</li>
-</ol>
-</blockquote>
-    
-    <a class="article-more-a" href="/2019/09/24/vue路由/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">note</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/09/24/vue路由/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-canvas 横屏绘制签名" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/09/24/canvas 横屏绘制签名/" target="_blank">canvas 横屏绘制签名</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/09/24/canvas 横屏绘制签名/" class="archive-article-date">
-        <time datetime="2019-09-24T01:50:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-24</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <ul>
-<li>canvas 横屏绘制电子签名</li>
-</ul>
-    
-    <a class="article-more-a" href="/2019/09/24/canvas 横屏绘制签名/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">note</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/javaScipt//" class="article-tag-list-link color5">javaScipt</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/09/24/canvas 横屏绘制签名/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-js数据类型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/09/24/js数据类型/" target="_blank">精确判断 js 数据类型</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/09/24/js数据类型/" class="archive-article-date">
-        <time datetime="2019-09-24T01:46:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-24</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>每个对象都有一个 toString() 方法，当该对象被表示为一个文本值时，或者一个对象以预期的字符串方式引用时自动调用。默认情况下，toString() 方法被每个 Object 对象继承。如果此方法在自定义对象中未被覆盖，toString() 返回 “[object type]”，其中 type 是对象的类型。</p>
-</blockquote>
-    
-    <a class="article-more-a" href="/2019/09/24/js数据类型/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">note</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/javaScipt//" class="article-tag-list-link color5">javaScipt</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/09/24/js数据类型/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -1277,8 +567,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
